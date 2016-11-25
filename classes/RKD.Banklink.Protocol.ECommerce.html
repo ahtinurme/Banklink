@@ -125,9 +125,9 @@
         </a>
     </li>
 
-                                                                                                                                                                <li class="method public">
-        <a href="#method_getAuthRequest" title="getAuthRequest :: Get authnetication object.">
-            <span class="description">Get authnetication object.</span><pre>getAuthRequest</pre>
+                                                                                                                                                                <li class="method public inherited">
+        <a href="#method_getAuthRequest" title="getAuthRequest :: Get authentication object.">
+            <span class="description">Get authentication object.</span><pre>getAuthRequest</pre>
         </a>
     </li>
 
@@ -137,7 +137,7 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                        <li class="method public">
+                                                                                                                                                                                                                        <li class="method public inherited">
         <a href="#method_handleResponse" title="handleResponse :: Handles response from bank.">
             <span class="description">Handles response from bank.</span><pre>handleResponse</pre>
         </a>
@@ -177,6 +177,11 @@
             <i class="icon-custom icon-constant"></i> Constants
             <ul>
                                 <li class="constant ">
+                    <a href="#constant_PAYMENT_RESPONSE_ABORT" title="PAYMENT_RESPONSE_ABORT :: Abort (user aborted payment) response code.">
+                        <span class="description">Abort (user aborted payment) response code.</span><pre>PAYMENT_RESPONSE_ABORT</pre>
+                    </a>
+                </li>
+                                <li class="constant ">
                     <a href="#constant_PAYMENT_RESPONSE_SUCCESS" title="PAYMENT_RESPONSE_SUCCESS :: Successful response code.">
                         <span class="description">Successful response code.</span><pre>PAYMENT_RESPONSE_SUCCESS</pre>
                     </a>
@@ -192,7 +197,7 @@
             <div class="element class">
                 <h1>ECommerce</h1>
                 <small style="display: block; text-align: right">
-                                                                Implements <a href="../classes/RKD.Banklink.Protocol.Protocol.html">\RKD\Banklink\Protocol\Protocol</a>
+                                                                Implements <a href="../classes/RKD.Banklink.Protocol.ProtocolInterface.html">\RKD\Banklink\Protocol\ProtocolInterface</a>
                                     </small>
                 <p class="short_description">Protocol for ECommerce payment.</p>
                 <div class="details">
@@ -305,11 +310,11 @@
 
                         </div>
                                             <a id="method_getAuthRequest"></a>
-                        <div class="element clickable method public  method_getAuthRequest" data-toggle="collapse" data-target=".method_getAuthRequest .collapse">
-                            <h2>Get authnetication object.</h2>
+                        <div class="element clickable method public  method_getAuthRequest inherited" data-toggle="collapse" data-target=".method_getAuthRequest .collapse">
+                            <h2>Get authentication object.</h2>
                             <pre>getAuthRequest(string $recId = null, string $nonce = null, string $rid = null, string $encoding = &#039;UTF-8&#039;, string $language = &#039;EST&#039;, string $timezone = &#039;Europe/Tallinn&#039;) : array</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -317,6 +322,15 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    SuppressWarnings
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>(&quot;unused&quot;)</p>
+                                                                                                    </td>
+                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
@@ -465,11 +479,11 @@
 
                         </div>
                                             <a id="method_handleResponse"></a>
-                        <div class="element clickable method public  method_handleResponse" data-toggle="collapse" data-target=".method_handleResponse .collapse">
+                        <div class="element clickable method public  method_handleResponse inherited" data-toggle="collapse" data-target=".method_handleResponse .collapse">
                             <h2>Handles response from bank.</h2>
-                            <pre>handleResponse(array $response, string $encoding = &#039;UTF-8&#039;) : \Response\PaymentResponse|\Response\AuthResponse</pre>
+                            <pre>handleResponse(array $response, string $encoding = &#039;UTF-8&#039;) : \Response\PaymentResponse</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -490,7 +504,7 @@
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>\Response\PaymentResponse|\Response\AuthResponse</code><p><p>Response object, depending on request made</p></p>
+                                        <code>\Response\PaymentResponse</code><p><p>Payment response object</p></p>
                                                                     </div>
                             </div>
 
@@ -532,6 +546,28 @@
                             <div class="element clickable constant  constant_PAYMENT_RESPONSE_SUCCESS" data-toggle="collapse" data-target=".constant_PAYMENT_RESPONSE_SUCCESS .collapse">
                                 <h2>Successful response code.</h2>
                                 <pre>PAYMENT_RESPONSE_SUCCESS</pre>
+                                <div class="labels">
+                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="constant_PAYMENT_RESPONSE_ABORT"> </a>
+                            <div class="element clickable constant  constant_PAYMENT_RESPONSE_ABORT" data-toggle="collapse" data-target=".constant_PAYMENT_RESPONSE_ABORT .collapse">
+                                <h2>Abort (user aborted payment) response code.</h2>
+                                <pre>PAYMENT_RESPONSE_ABORT</pre>
                                 <div class="labels">
                                                                     </div>
                                 <div class="row collapse">
@@ -754,7 +790,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Sat, 21 May 2016 13:33:35 +0200.<br/>
+            generated on Fri, 25 Nov 2016 09:45:51 +0100.<br/>
     </footer>
     </body>
 </html>

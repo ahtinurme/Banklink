@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    API Documentation &raquo; \RKD\Banklink\Request\Request
+    <title>    API Documentation &raquo; \RKD\Banklink\Protocol\ProtocolTrait\NoAuthTrait
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -120,26 +120,14 @@
             <i class="icon-custom icon-method"></i> Methods
             <ul>
                                                                                                     <li class="method public">
-        <a href="#method___construct" title="__construct :: Constructor.">
-            <span class="description">Constructor.</span><pre>__construct</pre>
+        <a href="#method_getAuthRequest" title="getAuthRequest :: Get authentication object.">
+            <span class="description">Get authentication object.</span><pre>getAuthRequest</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getRequestData" title="getRequestData :: Get request data.">
-            <span class="description">Get request data.</span><pre>getRequestData</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
-        <a href="#method_getRequestInputs" title="getRequestInputs :: Get request hidden inputs.">
-            <span class="description">Get request hidden inputs.</span><pre>getRequestInputs</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
-        <a href="#method_getRequestUrl" title="getRequestUrl :: Get request URL.">
-            <span class="description">Get request URL.</span><pre>getRequestUrl</pre>
+        <a href="#method_handleResponse" title="handleResponse :: Handles response from bank.">
+            <span class="description">Handles response from bank.</span><pre>handleResponse</pre>
         </a>
     </li>
 
@@ -147,11 +135,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                            </ul>
+                                                                                                                    </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                            </ul>
+                                                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -165,10 +153,10 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>Request</h1>
+                <h1>NoAuthTrait</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description">Abstract request class.</p>
+                <p class="short_description">Trait for protocols not using auth request.</p>
                 <div class="details">
                     <div class="long_description">
                         
@@ -192,13 +180,13 @@
                                                                                 <p>Default</p>
                                     </td>
                                 </tr>
-                                                                                                                                                                                                                                                                                                                                            </table>
+                                                                                                                                                                                </table>
 
                     <h3><i class="icon-custom icon-method"></i> Methods</h3>
-                                                                <a id="method___construct"></a>
-                        <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-                            <h2>Constructor.</h2>
-                            <pre>__construct(string $requestUrl, array $requestData) </pre>
+                                                                <a id="method_getAuthRequest"></a>
+                        <div class="element clickable method public  method_getAuthRequest" data-toggle="collapse" data-target=".method_getAuthRequest .collapse">
+                            <h2>Get authentication object.</h2>
+                            <pre>getAuthRequest(string $recId = null, string $nonce = null, string $rid = null, string $encoding = &#039;UTF-8&#039;, string $language = &#039;EST&#039;, string $timezone = &#039;Europe/Tallinn&#039;) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -210,31 +198,51 @@
                                     <table class="table">
                                                                                     <tr>
                                                 <th>
-                                                    
+                                                    SuppressWarnings
                                                 </th>
                                                 <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>(&quot;unused&quot;)</p>
                                                                                                     </td>
                                             </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$requestUrl</h4>
-                                                <code>string</code><p><p>Request URL</p></p>
+                                                <h4>$recId</h4>
+                                                <code>string</code><p><p>Bank identifier</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
-                                                <h4>$requestData</h4>
-                                                <code>array</code><p><p>Request array</p></p>
+                                                <h4>$nonce</h4>
+                                                <code>string</code><p><p>Random nonce</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rid</h4>
+                                                <code>string</code><p><p>Session identifier.</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$encoding</h4>
+                                                <code>string</code><p><p>Encoding</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$language</h4>
+                                                <code>string</code><p><p>Language</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$timezone</h4>
+                                                <code>string</code><p><p>Timezone. Default: Europe/Tallinn</p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Authentication request data</p></p>
                                                                     </div>
                             </div>
 
                         </div>
-                                            <a id="method_getRequestData"></a>
-                        <div class="element clickable method public  method_getRequestData" data-toggle="collapse" data-target=".method_getRequestData .collapse">
-                            <h2>Get request data.</h2>
-                            <pre>getRequestData() : array</pre>
+                                            <a id="method_handleResponse"></a>
+                        <div class="element clickable method public  method_handleResponse" data-toggle="collapse" data-target=".method_handleResponse .collapse">
+                            <h2>Handles response from bank.</h2>
+                            <pre>handleResponse(array $response, string $encoding = &#039;UTF-8&#039;) : \Response\PaymentResponse</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -244,145 +252,36 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
-                                    
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$response</h4>
+                                                <code>array</code><p><p>Response data from bank</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$encoding</h4>
+                                                <code>string</code><p><p>Encoding</p></p>
+                                            </div>
+                                                                            
                                                                             <h3>Response</h3>
-                                        <code>array</code><p><p>Request data</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getRequestInputs"></a>
-                        <div class="element clickable method public  method_getRequestInputs" data-toggle="collapse" data-target=".method_getRequestInputs .collapse">
-                            <h2>Get request hidden inputs.</h2>
-                            <pre>getRequestInputs() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>HTML of hidden request inputs</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getRequestUrl"></a>
-                        <div class="element clickable method public  method_getRequestUrl" data-toggle="collapse" data-target=".method_getRequestUrl .collapse">
-                            <h2>Get request URL.</h2>
-                            <pre>getRequestUrl() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>Request URL</p></p>
+                                        <code>\Response\PaymentResponse</code><p><p>Payment response object</p></p>
                                                                     </div>
                             </div>
 
                         </div>
                     
                     
-                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
-                                                    <a id="property_requestUrl"> </a>
-                            <div class="element clickable property  protected property_requestUrl" data-toggle="collapse" data-target=".property_requestUrl .collapse">
-                                <h2>Request url.</h2>
-                                <pre>requestUrl : string</pre>
-                                <div class="labels">
-                                                                                                        </div>
-                                <div class="row collapse">
-                                    <div class="detail-description">
-                                        <div class="long_description"></div>
-
-                                        <table class="table">
-                                                                                            <tr>
-                                                    <th>
-                                                        var
-                                                    </th>
-                                                    <td>
-                                                                                                                    
-                                                                                                            </td>
-                                                </tr>
-                                                                                    </table>
-
-                                                                                    <h3>Type(s)</h3>
-                                            <code>string</code>
-                                                                            </div>
-                                </div>
-                            </div>
-                                                    <a id="property_requestData"> </a>
-                            <div class="element clickable property  protected property_requestData" data-toggle="collapse" data-target=".property_requestData .collapse">
-                                <h2>Request data.</h2>
-                                <pre>requestData : array</pre>
-                                <div class="labels">
-                                                                                                        </div>
-                                <div class="row collapse">
-                                    <div class="detail-description">
-                                        <div class="long_description"></div>
-
-                                        <table class="table">
-                                                                                            <tr>
-                                                    <th>
-                                                        var
-                                                    </th>
-                                                    <td>
-                                                                                                                    
-                                                                                                            </td>
-                                                </tr>
-                                                                                    </table>
-
-                                                                                    <h3>Type(s)</h3>
-                                            <code>array</code>
-                                                                            </div>
-                                </div>
-                            </div>
-                                                            </div>
+                                                        </div>
             </div>
-            <a id="\RKD\Banklink\Request\Request"></a>
+            <a id="\RKD\Banklink\Protocol\ProtocolTrait\NoAuthTrait"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
-    <li><span class="divider">\</span><a href="../namespaces/RKD.Banklink.Request.html">Request</a></li>
+    <li><span class="divider">\</span><a href="../namespaces/RKD.Banklink.Protocol.ProtocolTrait.html">ProtocolTrait</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/RKD.Banklink.Request.Request.html">Request</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/RKD.Banklink.Protocol.ProtocolTrait.NoAuthTrait.html">NoAuthTrait</a></li>
             </ul>
         </div>
     </div>
