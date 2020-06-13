@@ -1,5 +1,5 @@
 {
-    "name": "renekorss/banklink",
+    "name": "ahtinurme/banklink",
     "description": "PHP banklink library to easily integrate Baltic banklinks.",
     "keywords": ["banklink", "pangalink", "baltic banklinks", "payments", "nets", "seb", "swedbank",
     "nordea", "lhv", "danskebank", "liisi", "cooppank", "luminor", "pocopay", "credit card", "payments"],
@@ -10,7 +10,7 @@
             "email": "rene.korss@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
     "php": ">=7.1",
     "ext-mbstring": "*",
