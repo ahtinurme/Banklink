@@ -46,7 +46,7 @@ class ProtocolHelper
         $closestTen = ceil($total / 10) * 10;
         $checkNum = $closestTen - $total;
 
-        return $orderId.$checkNum;
+        return '2'.$orderId.$checkNum;
     }
 
     /**
