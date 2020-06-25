@@ -19,12 +19,12 @@ class ProtocolHelperTest extends TestCase
     public function testcalculateReference()
     {
         $orderId = 12131295;
-        $expectedReference = 121312952;
+        $expectedReference = 2121312950;
 
         $this->assertEquals($expectedReference, ProtocolHelper::calculateReference($orderId));
 
         $orderId = 12131495;
-        $expectedReference = 121314950;
+        $expectedReference = 2121314958;
 
         $this->assertEquals($expectedReference, ProtocolHelper::calculateReference($orderId));
     }

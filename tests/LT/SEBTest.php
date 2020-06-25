@@ -33,7 +33,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $this->expectedData['VK_SERVICE'] = '1001';
         $this->expectedData['VK_NAME'] = $this->sellerName;
         $this->expectedData['VK_ACC'] = $this->sellerAccount;
-        $this->expectedData['VK_MAC'] = 'UsRf8b/STRpAbJDSCYOapuZGtzmiG/PN36JDbJcEdO67RTT0hnbp4AzBHjXKInZTCZ7Ftj8S1cO5KZtAdx+NhQxjaPuR8l0o7r6J6dUyVZumQnTyOOrMBmFC7tlZJDPDikFHSPSfAc5a1ealPQvlJT6IJ98OpjJa7kEPNEdOzaE=';
+        $this->expectedData['VK_MAC'] = 'sf6Hb+q4oI1a71G3JGqjKgje+HrHaSNwYAbEtFKHWsDgem6j95K9se16FwMY6yrRbsfEbqVkbIta2o5DAL/NrqxRmRYlORNxpmnsyfPyazsbC3hP51kCOgLkuqwPixYvOos8KEwtQvg+88cioylhd4JA0J3eDS8BIe6HFmbXPzc=';
 
         unset($this->expectedData['VK_CANCEL']);
         unset($this->expectedData['VK_ENCODING']);
@@ -73,7 +73,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $this->expectedData['VK_SERVICE']  = '1001';
         $this->expectedData['VK_ACC']      = $this->sellerAccount;
         $this->expectedData['VK_NAME']     = $this->sellerName;
-        $this->expectedData['VK_MAC']      = 'UsRf8b/STRpAbJDSCYOapuZGtzmiG/PN36JDbJcEdO67RTT0hnbp4AzBHjXKInZTCZ7Ftj8S1cO5KZtAdx+NhQxjaPuR8l0o7r6J6dUyVZumQnTyOOrMBmFC7tlZJDPDikFHSPSfAc5a1ealPQvlJT6IJ98OpjJa7kEPNEdOzaE=';
+        $this->expectedData['VK_MAC']      = 'sf6Hb+q4oI1a71G3JGqjKgje+HrHaSNwYAbEtFKHWsDgem6j95K9se16FwMY6yrRbsfEbqVkbIta2o5DAL/NrqxRmRYlORNxpmnsyfPyazsbC3hP51kCOgLkuqwPixYvOos8KEwtQvg+88cioylhd4JA0J3eDS8BIe6HFmbXPzc=';
 
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);
 

@@ -30,7 +30,7 @@ class SwedbankTest extends SEBTest
         // Swedbank has encoding
         $this->expectedData['VK_SERVICE'] = '1002';
         $this->expectedData['VK_ENCODING'] = 'UTF-8';
-        $this->expectedData['VK_MAC'] = 'M1EHQuM8AZ6bN+/RWeMUNIXe0bvWQB0ypVZhhoW1iz8VkE/a0OkjuqcqZRgEOdOyhs5GbP5Oy/PcqFV/rJ7yZIjXwsxM+6Ux+g4n7Xz088Jy0VuNFNvBUPf9yJOKW7Zjm3PNlqo3YrIB5rJpTb805MmMORl9iAYd7YywQLQrHL0=';
+        $this->expectedData['VK_MAC'] = 'CyAQksE1zTLWXvIJ2yCbn1UMQPwSdpS0Ql/Jc9VMIwuobeM9stWAM7dV6XEmb4U8x8AxUlkiWZEpK+lOKz/+jIqq4xbUDVR6M/lGUXXSurt4IZgmf13Kjniwoy8PKbN8bla0WPoAFeNK3oLEKBmRsqJfMXkXe3Bhle63XCrIb+Y=';
 
         unset($this->expectedData['VK_NAME']);
         unset($this->expectedData['VK_ACC']);

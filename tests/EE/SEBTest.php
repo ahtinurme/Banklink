@@ -83,7 +83,7 @@ class SEBTest extends TestCase
             'VK_RETURN'   => $this->customRequestUrl,
             'VK_CANCEL'   => $this->customRequestUrl,
             'VK_LANG'     => $this->language,
-            'VK_MAC'      => 'PmAB256IR1FzTKZHNn5LBPso/KyLAhNcTOMq82lhpYn0mXKYtVtpNkolQxyETnTcIn1TcYOmekJEATe86Bz2MRljEQqllkaIl7bNuLCtuBPtAOYWNLmQHoop+5QSiguJEmEV+JJU3w4BApjWcsHA5HYlYze+3L09UO6na0lB/Zs=',
+            'VK_MAC'      => 'am7Xad3nraG5vLwxepRFO0/U5Icb92jDlczr1JkI/nboVwD2jo9ofspWhXEGGnFk2FBywHiD7IaAkW/Mg/JXSp81bI+MtSgP+VLqzOsQcOrh7dilVHLCJ38rdSBAJ+V5wsvwOvqXmbye+yoZLvjT2hKAeF1IJVE2VFck+f5aaGE=',
             'VK_DATETIME' => $this->datetime,
             'VK_ENCODING' => 'UTF-8',
         ];
@@ -164,7 +164,7 @@ class SEBTest extends TestCase
         $this->expectedData['VK_SERVICE']  = '1011';
         $this->expectedData['VK_ACC']      = $this->sellerAccount;
         $this->expectedData['VK_NAME']     = $this->sellerName;
-        $this->expectedData['VK_MAC']      = 'PuJTjADqHeArALfzTo2ZsynckTOVRFZMnOnbv9tv30KrF2a9m/yJuRn9vcd3JuaSjgzKoS7DRSouDgXAe6GNLZnduhXZrYx5JtVMmnlgooQ+/pJqO6ZOzwsEjaXooTLCCnKA5P9zWoxXpe8Al4IC9pj7jLNFG3dCeG9XO5uRZEs=';
+        $this->expectedData['VK_MAC']      = 'W+/6bZKUqqgoJRS6LrzjctI9CNae5JfNxE4QtzFvxBW1oxqenIc43IzvMht7cUt4tRaxqSG92IfNQvX72HvdVO8eu/duuL3C1EH2tGxYgYS5Fw6RkApFXFc29zQduLsJZwBbV08TsG/AX027Q9+Fn43WN9Kn7OlnG400+k4ONkM=';
         $this->expectedData['VK_DATETIME'] = $this->datetime;
 
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);

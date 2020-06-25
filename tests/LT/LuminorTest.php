@@ -80,7 +80,7 @@ class LuminorTest extends TestCase
             'VK_ACC'      => $this->sellerAccount,
             'VK_NAME'     => $this->sellerName,
             'VK_PANK'     => '40100',
-            'VK_MAC'      => 'c8mA/p30t1yBGpVTJP9mCBx2TsRNO9/1sEGY1cQSkYQMmwCBnJq6BqdLt11eetnVDX4PezH799DuruoRPgQ7BZh7JIeaLmpj19qFvntWAPcuzNsxU7Neuy8xrDOkRd97UsmU+xhyc9Hq/MNPP/KvXXNh4xnfeeVzOxcNvWtIgTo=',
+            'VK_MAC'      => 'W7fQFyzyycV003HaKQJv9lyHQNXFxHw7v7J8c8RhSN5y7Pv7Jp4mwhDHkLrH7oPDviFQDpuqQitLf3NmYHJZGlkVs2/BPJiXdvS0eglZ9klTd3tZ8J7Hapk+mW6l0sQulCGkemq7LNRYD76vsGR6KAHDzlD6lrWPxM5gcoGm6w8=',
         ];
 
         // Set up banklink
@@ -139,7 +139,7 @@ class LuminorTest extends TestCase
         $this->expectedData['VK_SERVICE']  = '2001';
         $this->expectedData['VK_ACC']      = $this->sellerAccount;
         $this->expectedData['VK_NAME']     = $this->sellerName;
-        $this->expectedData['VK_MAC']      = 'c8mA/p30t1yBGpVTJP9mCBx2TsRNO9/1sEGY1cQSkYQMmwCBnJq6BqdLt11eetnVDX4PezH799DuruoRPgQ7BZh7JIeaLmpj19qFvntWAPcuzNsxU7Neuy8xrDOkRd97UsmU+xhyc9Hq/MNPP/KvXXNh4xnfeeVzOxcNvWtIgTo=';
+        $this->expectedData['VK_MAC']      = 'W7fQFyzyycV003HaKQJv9lyHQNXFxHw7v7J8c8RhSN5y7Pv7Jp4mwhDHkLrH7oPDviFQDpuqQitLf3NmYHJZGlkVs2/BPJiXdvS0eglZ9klTd3tZ8J7Hapk+mW6l0sQulCGkemq7LNRYD76vsGR6KAHDzlD6lrWPxM5gcoGm6w8=';
 
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);
 
