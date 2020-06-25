@@ -33,7 +33,7 @@ class ProtocolHelper
     {
         $length = strlen($orderId);
 
-        $orderId = (string) $orderId;
+        $orderId = (string) '2'.$orderId;
         $multipliers = [7, 3, 1];
         $total = 0;
         $multiplierKey = 0;
@@ -46,7 +46,7 @@ class ProtocolHelper
         $closestTen = ceil($total / 10) * 10;
         $checkNum = $closestTen - $total;
 
-        return '2'.$orderId.$checkNum;
+        return $orderId.$checkNum;
     }
 
     /**
