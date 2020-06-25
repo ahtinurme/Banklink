@@ -31,9 +31,8 @@ class ProtocolHelper
      */
     public static function calculateReference(int $orderId) : string
     {
-        $length = strlen($orderId);
-
         $orderId = (string) '2'.$orderId;
+        $length = strlen($orderId);
         $multipliers = [7, 3, 1];
         $total = 0;
         $multiplierKey = 0;
