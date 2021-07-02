@@ -80,7 +80,7 @@ class LuminorTest extends TestCase
             'VK_ACC'      => $this->sellerAccount,
             'VK_NAME'     => $this->sellerName,
             'VK_PANK'     => '40100',
-            'VK_MAC'      => 'W7fQFyzyycV003HaKQJv9lyHQNXFxHw7v7J8c8RhSN5y7Pv7Jp4mwhDHkLrH7oPDviFQDpuqQitLf3NmYHJZGlkVs2/BPJiXdvS0eglZ9klTd3tZ8J7Hapk+mW6l0sQulCGkemq7LNRYD76vsGR6KAHDzlD6lrWPxM5gcoGm6w8=',
+            'VK_MAC'      => 'PZeKZkZ0+0JfuC+14p+xAqx18UZnLQiiERplg+0sV+Ien0QAVnnYENuEF28ACWImG/SJHbHlmb9SdL7id71UAFlCb9I9wrSRipzwxdBcF80iPFN96JdGFfNKLEWG7JpzLJgqRYV9Y2cp44vzrqO9YJtu86pTJCj9yyV0pEYlQtg=',
         ];
 
         // Set up banklink
@@ -139,7 +139,7 @@ class LuminorTest extends TestCase
         $this->expectedData['VK_SERVICE']  = '2001';
         $this->expectedData['VK_ACC']      = $this->sellerAccount;
         $this->expectedData['VK_NAME']     = $this->sellerName;
-        $this->expectedData['VK_MAC']      = 'W7fQFyzyycV003HaKQJv9lyHQNXFxHw7v7J8c8RhSN5y7Pv7Jp4mwhDHkLrH7oPDviFQDpuqQitLf3NmYHJZGlkVs2/BPJiXdvS0eglZ9klTd3tZ8J7Hapk+mW6l0sQulCGkemq7LNRYD76vsGR6KAHDzlD6lrWPxM5gcoGm6w8=';
+        $this->expectedData['VK_MAC']      = 'PZeKZkZ0+0JfuC+14p+xAqx18UZnLQiiERplg+0sV+Ien0QAVnnYENuEF28ACWImG/SJHbHlmb9SdL7id71UAFlCb9I9wrSRipzwxdBcF80iPFN96JdGFfNKLEWG7JpzLJgqRYV9Y2cp44vzrqO9YJtu86pTJCj9yyV0pEYlQtg=';
 
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);
 
@@ -182,7 +182,7 @@ class LuminorTest extends TestCase
         $response = $this->bank->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
 
         $this->assertEquals($this->sellerName, $response->getReceiver()->name);
         $this->assertEquals($this->sellerAccount, $response->getReceiver()->account);
@@ -217,7 +217,7 @@ class LuminorTest extends TestCase
         $response = $this->bank->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_ERROR, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_ERROR, $response->getStatus());
 
         // This is not valid response, so validation should fail
         $this->assertFalse($response->wasSuccessful());
@@ -240,7 +240,7 @@ class LuminorTest extends TestCase
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);
 
         // Custom url
-        $this->assertEquals('https://google.com', $request->getRequestUrl());
+        $this->assertSame('https://google.com', $request->getRequestUrl());
     }
 
     /**
@@ -253,7 +253,7 @@ class LuminorTest extends TestCase
         $customData = [
             'INAPP' => 1, // new data
             'VK_REF' => 'mycustomref', // override data
-            'VK_MAC' => 'Z9AtMa/gJygMoKbxkeoegyiKEoNqn2CKW1s3n9k6/r+0Ge488BCESCKznET9GPrGBsQUJU6WoezgRyOiYUrzTkT9zZ+o/Pq+IPDaCSZn1v3HRrLqx8oEvbCNNAzEHr7UfvXdUWeRTy9+SDqka+8UR3LvidU1IDpwcHuQuF3jVo8='
+            'VK_MAC' => 'qek96woD8Pe6RBP244qypaZT473K2+tOqa6w22dJHBh3l8bpI35QRopNS9JmMxI1b7A892BXEL+o847ekRztjKQh21XUIKX3RwxFTm4Ia0y6ASGcX3IfeYJ7jmxOkvB0gORn/aG+SaUaX0U/K9Zm093pMVGnhSdl8Lg+mUROpJk='
         ];
 
         $this->expectedData = array_merge($this->expectedData, $customData);
@@ -276,8 +276,8 @@ class LuminorTest extends TestCase
         ]);
 
         // Custom url set
-        $this->assertEquals('https://custom.com/auth', $this->bank->getRequestUrlFor('auth'));
-        $this->assertEquals('https://custom.com/pay', $this->bank->getRequestUrlFor('payment'));
+        $this->assertSame('https://custom.com/auth', $this->bank->getRequestUrlFor('auth'));
+        $this->assertSame('https://custom.com/pay', $this->bank->getRequestUrlFor('payment'));
     }
 
     /**
@@ -289,8 +289,8 @@ class LuminorTest extends TestCase
         $this->bank->setRequestUrl('https://custom.com/endpoint');
 
         // Custom url set
-        $this->assertEquals('https://custom.com/endpoint', $this->bank->getRequestUrlFor('auth'));
-        $this->assertEquals('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
+        $this->assertSame('https://custom.com/endpoint', $this->bank->getRequestUrlFor('auth'));
+        $this->assertSame('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
     }
 
     /**
@@ -303,7 +303,7 @@ class LuminorTest extends TestCase
         $this->bank = new $this->bankClass($this->protocol);
         $this->bank->setRequestUrl(null);
 
-        $this->assertEquals('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
+        $this->assertSame('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
     }
 
     /**
@@ -316,6 +316,6 @@ class LuminorTest extends TestCase
         $this->bank = new $this->bankClass($this->protocol);
         $this->bank->setRequestUrl([]);
 
-        $this->assertEquals('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
+        $this->assertSame('https://custom.com/endpoint', $this->bank->getRequestUrlFor('payment'));
     }
 }

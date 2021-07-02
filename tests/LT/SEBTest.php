@@ -33,7 +33,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $this->expectedData['VK_SERVICE'] = '1001';
         $this->expectedData['VK_NAME'] = $this->sellerName;
         $this->expectedData['VK_ACC'] = $this->sellerAccount;
-        $this->expectedData['VK_MAC'] = 'sf6Hb+q4oI1a71G3JGqjKgje+HrHaSNwYAbEtFKHWsDgem6j95K9se16FwMY6yrRbsfEbqVkbIta2o5DAL/NrqxRmRYlORNxpmnsyfPyazsbC3hP51kCOgLkuqwPixYvOos8KEwtQvg+88cioylhd4JA0J3eDS8BIe6HFmbXPzc=';
+        $this->expectedData['VK_MAC'] = 'NYD8MmlHeNaAmmYx8PRmYemc5gOi+7I8DZRNnLW3m4GW0hxnbhWxMVP1vTd0hS6t96k8e8CnTpPMTnY9Om2wEOXvT6xnGfwZseUnMdYLgmxhOh4+fUUaMFagTDibwi37Jm3JfhdmL+bhoWtDLw5sbxUzgVP0N7N2m5xe2sODxeI=';
 
         unset($this->expectedData['VK_CANCEL']);
         unset($this->expectedData['VK_ENCODING']);
@@ -73,7 +73,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $this->expectedData['VK_SERVICE']  = '1001';
         $this->expectedData['VK_ACC']      = $this->sellerAccount;
         $this->expectedData['VK_NAME']     = $this->sellerName;
-        $this->expectedData['VK_MAC']      = 'sf6Hb+q4oI1a71G3JGqjKgje+HrHaSNwYAbEtFKHWsDgem6j95K9se16FwMY6yrRbsfEbqVkbIta2o5DAL/NrqxRmRYlORNxpmnsyfPyazsbC3hP51kCOgLkuqwPixYvOos8KEwtQvg+88cioylhd4JA0J3eDS8BIe6HFmbXPzc=';
+        $this->expectedData['VK_MAC']      = 'NYD8MmlHeNaAmmYx8PRmYemc5gOi+7I8DZRNnLW3m4GW0hxnbhWxMVP1vTd0hS6t96k8e8CnTpPMTnY9Om2wEOXvT6xnGfwZseUnMdYLgmxhOh4+fUUaMFagTDibwi37Jm3JfhdmL+bhoWtDLw5sbxUzgVP0N7N2m5xe2sODxeI=';
 
         $request = $this->bank->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], $this->timezone);
 
@@ -116,7 +116,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $response = $this->bank->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
 
         $this->assertEquals($this->sellerName, $response->getReceiver()->name);
         $this->assertEquals($this->sellerAccount, $response->getReceiver()->account);
@@ -151,7 +151,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $response = $this->bank->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_ERROR, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_ERROR, $response->getStatus());
 
         // This is not valid response, so validation should fail
         $this->assertFalse($response->wasSuccessful());
@@ -186,7 +186,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $response = $this->bank->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_ERROR, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_ERROR, $response->getStatus());
 
         // This is not valid response, so validation should fail
         $this->assertFalse($response->wasSuccessful());
@@ -205,7 +205,7 @@ class SEBTest extends \RKD\Banklink\Test\EE\SEBTest
         $customData = [
             'INAPP' => 1, // new data
             'VK_REF' => 'mycustomref', // override data
-            'VK_MAC' => 'SO5IL2VvFmCJ9xMPMnjGEleezHr8fy9rnt7O8xQN1OAAetP1HOT3XMq90c9kjVPaDLfC8RR7jeVCbH0ekl+X2a1kB2smY4/O8cqsQf2a+nGcqfw29RP9KyzwQqHo0rqKmNjgeDHy18hIFxVLKVJtXxlP8mw80O38coatpJJjL/4='
+            'VK_MAC' => 'hYw5OAS0rp6evyFCDdqrfSnTKhXACIE/pBhOo3MjY6F+YfE/sVvLcTDkLTcDWjKeCDs5ze7qNPC3+DWT1i9HGwjUcEJtnV3QRW2rEN4Zxy3rbtodsuDfj3CHJA5dq1Vx9YXFyPqsQrq8segH+PQtg4jQYwCffKTb585bBHuNiuU='
         ];
 
         $this->expectedData = array_merge($this->expectedData, $customData);

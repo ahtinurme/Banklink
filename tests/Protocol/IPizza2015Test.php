@@ -40,7 +40,7 @@ class IPizza2015Test extends IPizzaTest
             'VK_MSG' => $this->message,
             'VK_RETURN' => $this->requestUrl,
             'VK_LANG' => $this->language,
-            'VK_MAC' => 'CyAQksE1zTLWXvIJ2yCbn1UMQPwSdpS0Ql/Jc9VMIwuobeM9stWAM7dV6XEmb4U8x8AxUlkiWZEpK+lOKz/+jIqq4xbUDVR6M/lGUXXSurt4IZgmf13Kjniwoy8PKbN8bla0WPoAFeNK3oLEKBmRsqJfMXkXe3Bhle63XCrIb+Y='
+            'VK_MAC' => 'WnPfkNEbj0lvkdrVeE7j1E8mGWPs1R+mX/JPokmxHXXjDmzrwlY2TfGmQLYqdog6k1m4By4C+olSeZ/BN98UaXgmeonZgtTrrrOttYT1KaK5DfOTa3VptjqzG1k7jNDloFOJft4fYCrxx/A7XUJFXpKhIMf0lpeLkHOuW2x3U3k='
         ];
     }
 
@@ -66,7 +66,7 @@ class IPizza2015Test extends IPizzaTest
         $this->expectedData['VK_SERVICE'] = '1001';
         $this->expectedData['VK_ACC'] = $this->sellerAccount;
         $this->expectedData['VK_NAME'] = $this->sellerName;
-        $this->expectedData['VK_MAC'] = 'sf6Hb+q4oI1a71G3JGqjKgje+HrHaSNwYAbEtFKHWsDgem6j95K9se16FwMY6yrRbsfEbqVkbIta2o5DAL/NrqxRmRYlORNxpmnsyfPyazsbC3hP51kCOgLkuqwPixYvOos8KEwtQvg+88cioylhd4JA0J3eDS8BIe6HFmbXPzc=';
+        $this->expectedData['VK_MAC'] = 'NYD8MmlHeNaAmmYx8PRmYemc5gOi+7I8DZRNnLW3m4GW0hxnbhWxMVP1vTd0hS6t96k8e8CnTpPMTnY9Om2wEOXvT6xnGfwZseUnMdYLgmxhOh4+fUUaMFagTDibwi37Jm3JfhdmL+bhoWtDLw5sbxUzgVP0N7N2m5xe2sODxeI=';
 
         $requestData = $this->protocol->getPaymentRequest($this->orderId, $this->amount, $this->message, $this->language, $this->currency, [], 'UTF-8', $this->timezone);
 
@@ -102,7 +102,7 @@ class IPizza2015Test extends IPizzaTest
         $response = $this->protocol->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_SUCCESS, $response->getStatus());
 
         // This is valid response
         $this->assertTrue($response->wasSuccessful());
@@ -114,7 +114,7 @@ class IPizza2015Test extends IPizzaTest
         $this->assertEquals($this->orderId, $response->getOrderId());
 
         // We should get same prefered language
-        $this->assertEquals('EST', $response->getLanguage());
+        $this->assertSame('EST', $response->getLanguage());
 
         // We should get same message
         $this->assertEquals($this->message, $response->getMessage());
@@ -132,7 +132,7 @@ class IPizza2015Test extends IPizzaTest
         $this->assertEquals($this->currency, $response->getCurrency());
         $this->assertEquals($expextedSender, $response->getSender());
         $this->assertEquals($expextedReceiver, $response->getReceiver());
-        $this->assertEquals(100, $response->getTransactionId());
+        $this->assertSame('100', $response->getTransactionId());
         $this->assertEquals($this->datetime, $response->getTransactionDate());
     }
 
@@ -156,7 +156,7 @@ class IPizza2015Test extends IPizzaTest
         $response = $this->protocol->handleResponse($responseData);
 
         $this->assertInstanceOf('RKD\Banklink\Response\PaymentResponse', $response);
-        $this->assertEquals(PaymentResponse::STATUS_ERROR, $response->getStatus());
+        $this->assertSame(PaymentResponse::STATUS_ERROR, $response->getStatus());
 
         // This is not valid response, so validation should fail
         $this->assertFalse($response->wasSuccessful());

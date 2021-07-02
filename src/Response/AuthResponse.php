@@ -29,6 +29,7 @@ class AuthResponse extends Response
             5 => 'One-off code card',
             6 => 'PIN-calculator',
             7 => 'Code card',
+            9 => 'Smart-ID',
         ];
 
     /**
@@ -246,8 +247,8 @@ class AuthResponse extends Response
     {
         $authMethod = 'unknown';
 
-        if ((int) $this->token > 0 && in_array($this->token, array_keys(self::$authMethods))) {
-            $authMethod = self::$authMethods[$this->token];
+        if ((int) $this->token > 0 && in_array($this->token, array_keys(static::$authMethods))) {
+            $authMethod = static::$authMethods[$this->token];
         }
 
         return $authMethod;
