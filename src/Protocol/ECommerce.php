@@ -250,7 +250,6 @@ class ECommerce implements ProtocolInterface
         }
 
         openssl_sign($mac, $signature, $privateKey, $this->algorithm);
-        openssl_free_key($privateKey);
 
         $result = bin2hex($signature);
 
@@ -367,7 +366,6 @@ class ECommerce implements ProtocolInterface
         }
 
         $this->result = openssl_verify($data, pack('H*', $response['mac']), $publicKey, $this->algorithm);
-        openssl_free_key($publicKey);
 
         return $this->result === 1;
     }
